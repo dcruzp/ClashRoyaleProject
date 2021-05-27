@@ -73,7 +73,7 @@ namespace ClashRoyaleAplication.DBModels
                 entity.HasKey(e => e.IdCarta)
                     .HasName("PK_Carta_1");
 
-                entity.Property(e => e.IdCarta).ValueGeneratedNever();
+                entity.Property(e => e.IdCarta).HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.Calidad)
                     .IsRequired()
@@ -114,8 +114,8 @@ namespace ClashRoyaleAplication.DBModels
 
                 entity.Property(e => e.Tipo)
                     .IsRequired()
-                    .HasMaxLength(10)
-                    .IsFixedLength(true);
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Trofeos)
                     .IsRequired()
@@ -129,7 +129,7 @@ namespace ClashRoyaleAplication.DBModels
 
                 entity.ToTable("Desafio");
 
-                entity.Property(e => e.IdDesafio).ValueGeneratedNever();
+                entity.Property(e => e.IdDesafio).HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.Descripcion)
                     .HasMaxLength(200)

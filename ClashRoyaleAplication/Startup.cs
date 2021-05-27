@@ -31,7 +31,8 @@ namespace ClashRoyaleAplication
             services.AddDbContext<clashroyaleContext>();
             services.AddScoped<IJugadorRepository, JugadorRepository>();
             services.AddScoped<IClanRepository, ClanRepository>();
-            services.AddScoped<ICartaRepository, CartaRepository>(); 
+            services.AddScoped<ICartaRepository, CartaRepository>();
+            services.AddScoped<IDesafioRepository, DesafioRepository>(); 
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

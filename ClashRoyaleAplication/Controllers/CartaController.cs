@@ -109,17 +109,17 @@ namespace ClashRoyaleAplication.Controllers
         {
             try
             {
-                var jugadorantiguo = await _repository.GetCartaAsync(carta.Nombre);
-                if (jugadorantiguo == null)
+                var oldcart = await _repository.GetCartaAsync(carta.Nombre);
+                if (oldcart == null)
                 {
                     return NotFound($"Could not find cart with name {nombre}");
                 }
 
-                _mapper.Map(carta, jugadorantiguo);
+                _mapper.Map(carta, oldcart);
 
                 if (await _repository.SaveChangesAsync())
                 {
-                    return _mapper.Map<CartaModels>(jugadorantiguo);
+                    return _mapper.Map<CartaModels>(oldcart);
                 }
             }
             catch
