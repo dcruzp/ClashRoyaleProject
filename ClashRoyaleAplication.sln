@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClashRoyaleAplication", "ClashRoyaleAplication\ClashRoyaleAplication.csproj", "{CEAE0DDE-D428-40D2-BCE8-528C294B86DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEAE0DDE-D428-40D2-BCE8-528C294B86DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEAE0DDE-D428-40D2-BCE8-528C294B86DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEAE0DDE-D428-40D2-BCE8-528C294B86DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEAE0DDE-D428-40D2-BCE8-528C294B86DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D61BB915-0EF6-4820-A87A-747F5041632D}
+	EndGlobalSection
+EndGlobal
