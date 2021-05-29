@@ -78,6 +78,7 @@ namespace ClashRoyaleAplication
         }
 
 
+
         /// <summary>
         /// Esto es para hacer una prueba con la base de datos en memoria
         /// </summary>
