@@ -61,7 +61,6 @@ namespace ClashRoyaleAplication
                 endpoints.MapControllers();
             });
 
-
             PutDataIntoDatabase(context); 
         }
 
@@ -83,7 +82,6 @@ namespace ClashRoyaleAplication
                     new Jugador { Nombre = "Perico" , CantidadVictorias =  6 , MaximoTrofeos =  8 , Nivel = 3  , CantidadTrofeos = 7, CantidadCartasEncontradas = 10  },
                     new Jugador { Nombre = "Daniel" , CantidadVictorias =  3 , MaximoTrofeos =  9 , Nivel = 4  , CantidadTrofeos = 4 , CantidadCartasEncontradas = 4  },
                 });
-
                 context.SaveChanges();
             }
 
@@ -103,7 +101,6 @@ namespace ClashRoyaleAplication
                     new Clan { Nombre=  "Clan1" ,  Tipo =  "Tipodeclan" , CantidadDeMiembros =  3 , Region= "Center"  , Descripcion = "Esta es la descripcion del Clan1"   , Trofeos = "Trofeo1" , CantidadDeTrofeos =  1 },
                     new Clan { Nombre=  "Clan2" ,  Tipo =  "Tipodeclan" , CantidadDeMiembros =  4 , Region= "Center" , Descripcion = "Esta es la descripcion del Clan2"   , Trofeos = "Trofeo3" , CantidadDeTrofeos =  4 },
                 });
-
                 context.SaveChanges(); 
             }
         }
