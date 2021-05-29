@@ -6,6 +6,7 @@ using AutoMapper;
 using ClashRoyaleAplication.Data;
 using ClashRoyaleAplication.DBModels;
 using ClashRoyaleAplication.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;  
@@ -16,6 +17,7 @@ namespace ClashRoyaleAplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("React_Policy")]
     public class JugadorController : ControllerBase
     {
         private readonly IJugadorRepository _repository;

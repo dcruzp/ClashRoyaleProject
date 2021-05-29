@@ -7,6 +7,7 @@ using ClashRoyaleAplication.Data;
 using ClashRoyaleAplication.DBModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,7 @@ namespace ClashRoyaleAplication
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        readonly string React_Policy = "React_Policy";
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<clashroyaleContext>(options => options.UseInMemoryDatabase("database"));
@@ -40,6 +42,10 @@ namespace ClashRoyaleAplication
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddControllers();
+            services.AddCors(o => o.AddPolicy(React_Policy, builder =>
+            {
+                builder.SetIsOriginAllowed(isOriginAllowed: _ => true).AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +59,13 @@ namespace ClashRoyaleAplication
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor |
+                   ForwardedHeaders.XForwardedProto
+            });
 
+            app.UseCors(React_Policy);
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
