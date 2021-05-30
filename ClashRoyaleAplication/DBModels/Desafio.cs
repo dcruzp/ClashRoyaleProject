@@ -18,7 +18,7 @@ namespace ClashRoyaleAplication.DBModels
         public int NivelMinimo { get; set; }
         public string Descripcion { get; set; }
         public int? Costo { get; set; }
-        public int CantidaddeDerrotas { get; set; }
+        public int CantidadDeDerrotas { get; set; }
         public DateTime TiempoDeDuracion { get; set; }
 
         public virtual ICollection<Participa> Participas { get; set; }

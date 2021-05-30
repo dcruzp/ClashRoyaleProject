@@ -23,7 +23,10 @@ namespace ClashRoyaleAplication.Data
             this.CreateMap<Clan, ClanModels>().ReverseMap();
 
             this.CreateMap<Desafio, DesafioModels>();
-            this.CreateMap<DesafioModels, Desafio>().ReverseMap(); 
+            this.CreateMap<DesafioModels, Desafio>().ReverseMap();
+
+            this.CreateMap<GuerradeClane, GuerraDeClanesModels>();
+            this.CreateMap<GuerradeClane, GuerraDeClanesModels>().ReverseMap();
         }
     }
 }

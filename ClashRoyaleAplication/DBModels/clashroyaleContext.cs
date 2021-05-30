@@ -131,9 +131,7 @@ namespace ClashRoyaleAplication.DBModels
 
                 entity.Property(e => e.IdDesafio).HasDefaultValueSql("(newid())");
 
-                entity.Property(e => e.Descripcion)
-                    .HasMaxLength(200)
-                    .IsUnicode(false);
+                entity.Property(e => e.Descripcion).HasColumnType("text");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
@@ -181,7 +179,7 @@ namespace ClashRoyaleAplication.DBModels
             {
                 entity.HasKey(e => e.IdGuerraClanes);
 
-                entity.Property(e => e.IdGuerraClanes).ValueGeneratedNever();
+                entity.Property(e => e.IdGuerraClanes).HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()

@@ -1,20 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using ClashRoyaleAplication.Data;
 using ClashRoyaleAplication.DBModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson; 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace ClashRoyaleAplication
 {
@@ -37,7 +36,8 @@ namespace ClashRoyaleAplication
             services.AddScoped<IJugadorRepository, JugadorRepository>();
             services.AddScoped<IClanRepository, ClanRepository>();
             services.AddScoped<ICartaRepository, CartaRepository>();
-            services.AddScoped<IDesafioRepository, DesafioRepository>(); 
+            services.AddScoped<IDesafioRepository, DesafioRepository>();
+            services.AddScoped<IGuerraDeClanesRepository, GuerraDeClanesRepository>(); 
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -46,7 +46,18 @@ namespace ClashRoyaleAplication
             {
                 builder.SetIsOriginAllowed(isOriginAllowed: _ => true).AllowAnyHeader().AllowAnyMethod().AllowCredentials();
             }));
+
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
+
+       
+      
+
+
+
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env , clashroyaleContext context)
@@ -66,6 +77,7 @@ namespace ClashRoyaleAplication
             });
 
             app.UseCors(React_Policy);
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -114,6 +126,30 @@ namespace ClashRoyaleAplication
                     new Clan { Nombre=  "Clan2" ,  Tipo =  "Tipodeclan" , CantidadDeMiembros =  4 , Region= "Center" , Descripcion = "Esta es la descripcion del Clan2"   , Trofeos = "Trofeo3" , CantidadDeTrofeos =  4 },
                 });
                 context.SaveChanges(); 
+            }
+
+            if (!context.GuerradeClanes.Any())
+            {
+                context.GuerradeClanes.AddRange(new List<GuerradeClane>() 
+                {
+                    new GuerradeClane { Nombre = "Guerra1" } , 
+                    new GuerradeClane { Nombre = "Guerra2"}
+                });
+                context.SaveChanges(); 
+            }
+
+            if (!context.ParticipaEns.Any())
+            {
+                var guerradeclanes = context.GuerradeClanes.FirstOrDefault();
+                var clan = context.Clans.FirstOrDefault();
+
+                ParticipaEn participaEn = new ParticipaEn();
+                participaEn.IdClan = clan.IdClan;
+                participaEn.IdGuerraClanes = guerradeclanes.IdGuerraClanes;
+                participaEn.FechaComienzo = DateTime.Now;
+
+                context.Add(participaEn);
+                context.SaveChanges();
             }
         }
     }
