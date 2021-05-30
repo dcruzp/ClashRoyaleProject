@@ -43,6 +43,16 @@ namespace ClashRoyaleAplication.Data
             return await query.FirstOrDefaultAsync();
         }
 
+        public async Task<Clan[]> GetAllClanesByRegion (string region )
+        {
+            IQueryable<Clan> query = _context.Clans
+                .Where(c => c.Region == region)
+                .OrderBy(c => c.CantidadDeTrofeos);
+
+
+            return await query.ToArrayAsync(); 
+        }
+
         public async  Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync())>0; 

@@ -244,6 +244,8 @@ namespace ClashRoyaleAplication.DBModels
 
                 entity.ToTable("Miembro");
 
+                entity.Property(e => e.IdMiembro).HasDefaultValueSql("(newid())");
+
                 entity.Property(e => e.Cargo)
                     .IsRequired()
                     .HasMaxLength(50)

@@ -122,8 +122,9 @@ namespace ClashRoyaleAplication
             if (!context.Clans.Any())
             {
                 context.Clans.AddRange(new List<Clan>() {
-                    new Clan { Nombre=  "Clan1" ,  Tipo =  "Tipodeclan" , CantidadDeMiembros =  3 , Region= "Center"  , Descripcion = "Esta es la descripcion del Clan1"   , Trofeos = "Trofeo1" , CantidadDeTrofeos =  1 },
+                    new Clan { Nombre=  "Clan1" ,  Tipo =  "TIpodeclan" , CantidadDeMiembros =  3 , Region= "Center"  , Descripcion = "Esta es la descripcion del Clan1"   , Trofeos = "Trofeo1" , CantidadDeTrofeos =  1 },
                     new Clan { Nombre=  "Clan2" ,  Tipo =  "Tipodeclan" , CantidadDeMiembros =  4 , Region= "Center" , Descripcion = "Esta es la descripcion del Clan2"   , Trofeos = "Trofeo3" , CantidadDeTrofeos =  4 },
+                    new Clan { Nombre=  "Clan3" ,  Tipo =  "Tipodeclan" , CantidadDeMiembros =  2 , Region= "Oriente" , Descripcion = "Esta es la descripcion del Clan3"   , Trofeos = "Trofeo9" , CantidadDeTrofeos =  3 },
                 });
                 context.SaveChanges(); 
             }
@@ -140,8 +141,8 @@ namespace ClashRoyaleAplication
 
             if (!context.ParticipaEns.Any())
             {
-                var guerradeclanes = context.GuerradeClanes.FirstOrDefault();
-                var clan = context.Clans.FirstOrDefault();
+                var guerradeclanes = context.GuerradeClanes.Where(x => x.Nombre== "Guerra1").FirstOrDefault();
+                var clan = context.Clans.Where(x => x.Nombre == "Clan1").FirstOrDefault();
 
                 ParticipaEn participaEn = new ParticipaEn();
                 participaEn.IdClan = clan.IdClan;
@@ -150,6 +151,21 @@ namespace ClashRoyaleAplication
 
                 context.Add(participaEn);
                 context.SaveChanges();
+            }
+
+            if (!context.Miembros.Any())
+            {
+                var jugador = context.Jugadors.Where(x => x.Nombre== "Daniel").FirstOrDefault();
+                var clan = context.Clans.Where(x => x.Nombre == "Clan1").FirstOrDefault();
+
+                Miembro miembro = new Miembro();
+
+                miembro.IdJugador = jugador.IdJugador;
+                miembro.IdClan = clan.IdClan;
+
+
+                context.Add(miembro); 
+
             }
         }
     }

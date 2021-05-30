@@ -15,5 +15,6 @@ namespace ClashRoyaleAplication.Models
         public string Descripcion { get; set; }
         public string Trofeos { get; set; }
         public int CantidadDeTrofeos { get; set; }
+
     }
 }

@@ -13,5 +13,6 @@ namespace ClashRoyaleAplication.Models
 
         public ICollection<ClanModels> Clanes { get; set; }
 
+        public ICollection<JugadorModels> MejoresJugadores { get; set; } 
     }
 }

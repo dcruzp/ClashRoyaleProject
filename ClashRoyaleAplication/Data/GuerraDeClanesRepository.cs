@@ -37,7 +37,10 @@ namespace ClashRoyaleAplication.Data
 
         public async Task<GuerradeClane> GetGuerraDeClanesAsync(string nombre)
         {
-            IQueryable<GuerradeClane> query = _context.GuerradeClanes.Include(x => x.ParticipaEns).ThenInclude(x => x.IdClanNavigation);
+            IQueryable<GuerradeClane> query = _context.GuerradeClanes
+                .Where(x => x.Nombre == nombre)
+                .Include(x => x.ParticipaEns)
+                .ThenInclude(x => x.IdClanNavigation);
 
             return await query.FirstOrDefaultAsync(); 
         }
@@ -47,6 +50,16 @@ namespace ClashRoyaleAplication.Data
             return (await _context.SaveChangesAsync()) > 0;
         }
 
+        public Jugador GetBestPlayerByTrofeos (Clan clan)
+        {
+            List<Miembro> miembros = clan.Miembros.ToList();
+
+            List<Jugador> jugadores = (from maxjug in miembros.Select(x => x.IdJugadorNavigation)
+                           orderby maxjug.CantidadTrofeos descending
+                           select maxjug).ToList();
+
+            return jugadores.FirstOrDefault();  
+        }
        
     }
 }

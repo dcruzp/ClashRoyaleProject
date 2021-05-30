@@ -47,6 +47,21 @@ namespace ClashRoyaleAplication.Controllers
             }
         }
 
+        [HttpGet("{nombre}/region/{region}")]
+        public async Task<ActionResult<ClanModels[]>> GetByRegion(string region )
+        {
+            try
+            {
+                var model = await _repository.GetAllClanesByRegion(region);
+
+                return _mapper.Map<ClanModels[]>(model);
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
+            }
+        }
+
         // GET api/<ClanController>/5
         [HttpGet("{nombre}")]
         public async Task<ActionResult<ClanModels>> Get(string nombre)

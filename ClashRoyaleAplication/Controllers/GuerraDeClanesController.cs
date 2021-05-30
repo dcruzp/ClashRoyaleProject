@@ -56,9 +56,17 @@ namespace ClashRoyaleAplication.Controllers
 
                 var models = _mapper.Map<GuerraDeClanesModels>(guerradeclanes);
 
-                models.Clanes = _mapper.Map<ClanModels[]> ( 
-                                new List<Clan>( from clan in guerradeclanes.ParticipaEns
-                                                select clan.IdClanNavigation ));
+
+                var clanes = new List<Clan>(from clan in guerradeclanes.ParticipaEns
+                                               select clan.IdClanNavigation);
+
+                var mejoresjugadores = from bestjugador in clanes
+                                          select _repository.GetBestPlayerByTrofeos(bestjugador);
+
+                models.Clanes = _mapper.Map<ClanModels[]>(clanes);
+
+                models.MejoresJugadores = _mapper.Map<JugadorModels[]>(mejoresjugadores);
+
 
                 return models; 
 
