@@ -19,6 +19,9 @@ namespace ClashRoyaleAplication.Data
 
         public Task<GuerradeClane> GetGuerraDeClanesAsync(string nombre);
 
-        public Jugador GetBestPlayerByTrofeos(Clan clan);
+        public Task<Clan[]> GetClanesInGuerra(string nombre);
+      
+
+        public Task<Jugador> GetBestPlayerByTrofeos(Clan clan);
     }
 }

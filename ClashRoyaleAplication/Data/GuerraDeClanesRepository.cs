@@ -50,16 +50,24 @@ namespace ClashRoyaleAplication.Data
             return (await _context.SaveChangesAsync()) > 0;
         }
 
-        public Jugador GetBestPlayerByTrofeos (Clan clan)
+        public async  Task<Jugador> GetBestPlayerByTrofeos (Clan clan)
         {
-            List<Miembro> miembros = clan.Miembros.ToList();
+            var jugadores = _context.Miembros.Where(x =>x.IdClan == clan.IdClan).Select(x => x.IdJugadorNavigation);
 
-            List<Jugador> jugadores = (from maxjug in miembros.Select(x => x.IdJugadorNavigation)
-                           orderby maxjug.CantidadTrofeos descending
-                           select maxjug).ToList();
+            var bestjugador = jugadores.OrderByDescending(x => x.MaximoTrofeos).FirstAsync();
 
-            return jugadores.FirstOrDefault();  
+            return await bestjugador;  
         }
-       
+
+        public async Task<Clan[]> GetClanesInGuerra(string nombre)
+        {
+            var query = _context.GuerradeClanes.Where(x => x.Nombre == nombre).FirstOrDefault();
+
+            var query1 = _context.ParticipaEns.Where(x => x.IdGuerraClanes == query.IdGuerraClanes).Select(x =>x.IdClanNavigation);
+
+            return await query1.ToArrayAsync(); 
+
+
+        }
     }
 }
