@@ -74,6 +74,7 @@ namespace ClashRoyaleAplication.Controllers
 
                 var cartafavorita = await _repository.GetAllCartasFavoritas(model);
 
+
                 modelreturn.CartaFavorita = _mapper.Map<CartaModels[]>(cartafavorita);
 
                 return modelreturn; 

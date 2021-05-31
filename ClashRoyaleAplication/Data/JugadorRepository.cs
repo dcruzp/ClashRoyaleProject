@@ -47,6 +47,15 @@ namespace ClashRoyaleAplication.Data
 
         }
 
+        public async Task<Clan> GetClanAsociateAsync(Jugador jugador)
+        {
+            IQueryable<Clan> query = _context.Miembros
+                .Where(x => x.IdJugador == jugador.IdJugador)
+                .Select(x => x.IdClanNavigation);
+
+            return await query.FirstOrDefaultAsync(); 
+        }
+
         public async Task<Jugador> GetJugadorAsync(string nombre)
         {
             IQueryable<Jugador> query = _context.Jugadors.Where(x => x.Nombre == nombre) ;

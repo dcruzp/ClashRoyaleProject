@@ -59,7 +59,11 @@ namespace ClashRoyaleAplication.Controllers
 
                 var clanestojoin = await _repository.GetAllClanesToJoin(jugador, "Open");
 
+                var clanasociado = await _repository.GetClanAsociateAsync(jugador); 
+
                 modeljugadores.ClanesToJoin = _mapper.Map<ClanModels[]>(clanestojoin);
+
+                modeljugadores.ClanPertenece = _mapper.Map<ClanModels>(clanasociado); 
 
                 return modeljugadores; 
             }
