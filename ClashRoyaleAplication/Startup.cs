@@ -112,9 +112,11 @@ namespace ClashRoyaleAplication
             if (!context.Carta.Any())
             {
                 context.Carta.AddRange(new List<Cartum>() {
-                    new Cartum { Nombre = "Carta1" , CostodeElixir = 2 , Descripcion = "descricion de la Carta 1" , Calidad = "Alta" },
-                    new Cartum { Nombre = "Carta2" , CostodeElixir = 6 , Descripcion = "descricion de la Carta 8" , Calidad = "Baja" },
-                    new Cartum { Nombre = "Carta3" , CostodeElixir = 4 , Descripcion = "descricion de la Carta 6" , Calidad = "Alta" },
+                    new Cartum { Nombre="XBow",  CostodeElixir=6 , Calidad="Epic", Descripcion = "It is a single-target, long-ranged offensive and defensive building with both moderate hitpoints and damage output. It appears to be a crossbow with wooden, stone, and metallic features along with a shining steel bolt for ammunition"},
+                    new Cartum { Nombre="Minions" ,CostodeElixir=3 , Calidad="Common", Descripcion = "It spawns three single-target, short-ranged, flying Minions with relatively low hitpoints and moderate damage. Their appearance is that of a bluish-purple gargoyle with large horns, stubby wings, and large hands with sharp vicious claws."},
+                    new Cartum { Nombre="Fireball",  CostodeElixir=4 , Calidad="Especial", Descripcion = "It is an area damage spell with a medium radius and moderately high damage, and it will push back certain small troops." },
+                     new Cartum { Nombre="Musketeer",  CostodeElixir=4 , Calidad="Especial", Descripcion = "She is a single-target, medium-ranged troop with both moderate hitpoints and damage. She has purple combed hair, a blunderbuss-styled musket and a metal helmet with a tiny crater on it" },
+                      new Cartum { Nombre="Tesla",  CostodeElixir=4 , Calidad="Common", Descripcion = "It is a single-target, medium-ranged defensive building with both moderate hit points and damage. Tesla retracts when no targets are within range and gains immunity to most negative effects." },
                 });
                 context.SaveChanges(); 
             }
@@ -171,7 +173,7 @@ namespace ClashRoyaleAplication
             var Jugador = context.Jugadors.Where(x => x.Nombre == "Daniel").FirstOrDefault();
             var Carta = context.Carta.Where(x => x.Nombre == "Carta1").FirstOrDefault();
 
-            Jugador.CartaPreferidaActual = Carta.IdCarta;
+            //Jugador.CartaPreferidaActual = Carta.IdCarta;
 
            
 

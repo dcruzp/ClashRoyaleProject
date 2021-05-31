@@ -10,7 +10,7 @@ namespace ClashRoyaleAplication.Models
     {
         public string Nombre { get; set; }
         public int CostodeElixir { get; set; }
-        public string Desripcion { get; set; }
+        public string Descripcion { get; set; }
         public string Calidad { get; set; }
     }
 }
