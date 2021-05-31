@@ -17,7 +17,9 @@ namespace ClashRoyaleAplication.Data
 
         public Task<Jugador[]> GetAllJugadoresAsync();
 
-        public Task<Jugador> GetJugadorAsync(string nombre); 
+        public Task<Jugador> GetJugadorAsync(string nombre);
+
+        public Task<Clan[]> GetAllClanesToJoin(Jugador jugador, string tipo); 
 
     }
 }

@@ -15,5 +15,7 @@ namespace ClashRoyaleAplication.Models
         public int CantidadTrofeos { get; set; }
         public int CantidadCartasEncontradas { get; set; }
         public Guid? CartaPreferidaActual { get; set; }
+
+        public IEnumerable<ClanModels> ClanesToJoin { get; set; }  
     }
 }

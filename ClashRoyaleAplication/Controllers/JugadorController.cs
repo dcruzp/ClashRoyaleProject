@@ -53,9 +53,15 @@ namespace ClashRoyaleAplication.Controllers
         {
             try
             {
-                var model = await _repository.GetJugadorAsync(nombre);
+                var jugador = await _repository.GetJugadorAsync(nombre);
 
-                return _mapper.Map<JugadorModels>(model);
+                var modeljugadores = _mapper.Map<JugadorModels>(jugador);
+
+                var clanestojoin = await _repository.GetAllClanesToJoin(jugador, "Open");
+
+                modeljugadores.ClanesToJoin = _mapper.Map<ClanModels[]>(clanestojoin);
+
+                return modeljugadores; 
             }
             catch (Exception)
             {

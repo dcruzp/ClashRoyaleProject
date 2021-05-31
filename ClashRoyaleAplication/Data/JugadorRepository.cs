@@ -31,6 +31,14 @@ namespace ClashRoyaleAplication.Data
             _context.Remove(entity); 
         }
 
+        public async Task<Clan[]> GetAllClanesToJoin(Jugador jugador , string tipo)
+        {
+
+            IQueryable<Clan> query = _context.Clans.Where(x => x.Tipo == tipo && x.CantidadDeTrofeos <= jugador.CantidadTrofeos);
+
+            return await query.ToArrayAsync(); 
+        }
+
         public async Task<Jugador[]> GetAllJugadoresAsync()
         {
             IQueryable<Jugador> query = _context.Jugadors;

@@ -122,9 +122,9 @@ namespace ClashRoyaleAplication
             if (!context.Clans.Any())
             {
                 context.Clans.AddRange(new List<Clan>() {
-                    new Clan { Nombre=  "Clan1" ,  Tipo =  "TIpodeclan" , CantidadDeMiembros =  3 , Region= "Center"  , Descripcion = "Esta es la descripcion del Clan1"   , Trofeos = "Trofeo1" , CantidadDeTrofeos =  1 },
-                    new Clan { Nombre=  "Clan2" ,  Tipo =  "Tipodeclan" , CantidadDeMiembros =  4 , Region= "Center" , Descripcion = "Esta es la descripcion del Clan2"   , Trofeos = "Trofeo3" , CantidadDeTrofeos =  4 },
-                    new Clan { Nombre=  "Clan3" ,  Tipo =  "Tipodeclan" , CantidadDeMiembros =  2 , Region= "Oriente" , Descripcion = "Esta es la descripcion del Clan3"   , Trofeos = "Trofeo9" , CantidadDeTrofeos =  3 },
+                    new Clan { Nombre=  "Clan1" ,  Tipo =  "Open" , CantidadDeMiembros =  3 , Region= "Center"  , Descripcion = "Esta es la descripcion del Clan1"   , Trofeos = "Trofeo1" , CantidadDeTrofeos =  1 },
+                    new Clan { Nombre=  "Clan2" ,  Tipo =  "Invited" , CantidadDeMiembros =  4 , Region= "Center" , Descripcion = "Esta es la descripcion del Clan2"   , Trofeos = "Trofeo3" , CantidadDeTrofeos =  4 },
+                    new Clan { Nombre=  "Clan3" ,  Tipo =  "Open" , CantidadDeMiembros =  2 , Region= "Oriente" , Descripcion = "Esta es la descripcion del Clan3"   , Trofeos = "Trofeo9" , CantidadDeTrofeos =  3 },
                 });
                 context.SaveChanges(); 
             }
@@ -172,6 +172,8 @@ namespace ClashRoyaleAplication
             var Carta = context.Carta.Where(x => x.Nombre == "Carta1").FirstOrDefault();
 
             Jugador.CartaPreferidaActual = Carta.IdCarta;
+
+           
 
             context.SaveChanges(); 
 
