@@ -173,7 +173,7 @@ namespace ClashRoyaleAplication
             var Jugador = context.Jugadors.Where(x => x.Nombre == "Daniel").FirstOrDefault();
             var Carta = context.Carta.Where(x => x.Nombre == "Carta1").FirstOrDefault();
 
-            Jugador.CartaPreferidaActual = Carta.IdCarta;
+            //Jugador.CartaPreferidaActual = Carta.IdCarta;
 
            
 
