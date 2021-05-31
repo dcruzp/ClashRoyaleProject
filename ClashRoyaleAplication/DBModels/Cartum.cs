@@ -10,6 +10,7 @@ namespace ClashRoyaleAplication.DBModels
         public Cartum()
         {
             Dispones = new HashSet<Dispone>();
+            Donars = new HashSet<Donar>();
             Jugadors = new HashSet<Jugador>();
         }
 
@@ -20,6 +21,7 @@ namespace ClashRoyaleAplication.DBModels
         public string Calidad { get; set; }
 
         public virtual ICollection<Dispone> Dispones { get; set; }
+        public virtual ICollection<Donar> Donars { get; set; }
         public virtual ICollection<Jugador> Jugadors { get; set; }
     }
 }

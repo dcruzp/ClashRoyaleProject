@@ -69,16 +69,26 @@ namespace ClashRoyaleAplication.Controllers
             try
             {
                 var model = await _repository.GetClanAsync(nombre);
+                if (model == null) return NotFound(); 
 
                 var modelreturn = _mapper.Map<ClanModels>(model);
 
-                var cartafavorita = await _repository.GetAllCartasFavoritas(model);
 
+                Cartum[] cartafavorita = null;
 
-                modelreturn.CartaFavorita = _mapper.Map<CartaModels[]>(cartafavorita);
+                try
+                {
+                    cartafavorita = await _repository.GetAllCartasFavoritas(model);
+                }
+                catch (Exception)
+                {
+
+                }
+
+                if (cartafavorita != null)
+                    modelreturn.CartaFavorita = _mapper.Map<CartaModels[]>(cartafavorita);
 
                 return modelreturn; 
-
             }
             catch (Exception)
             {

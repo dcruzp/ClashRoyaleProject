@@ -69,7 +69,7 @@ namespace ClashRoyaleAplication.Data
             List<Jugador> jugadoresdelclan = _context.Miembros.Where(x => x.IdClan == clan.IdClan).Select(x=>x.IdJugadorNavigation).ToList();
 
             var groups = jugadoresdelclan.GroupBy(x => x.CartaPreferidaActual);
-            var contador = groups.OrderByDescending(x => x.Count()).First();
+            var contador = groups.OrderByDescending(x => x.Count()).First(); 
 
             var carta = _context.Carta.Where(x => x.IdCarta == contador.Key);
 

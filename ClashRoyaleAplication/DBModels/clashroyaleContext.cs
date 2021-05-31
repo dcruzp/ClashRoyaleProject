@@ -163,9 +163,24 @@ namespace ClashRoyaleAplication.DBModels
 
             modelBuilder.Entity<Donar>(entity =>
             {
-                entity.HasKey(e => new { e.IdJugador, e.IdMiembro, e.IdCarta });
+                entity.HasKey(e => new { e.IdMiembro, e.IdCarta, e.IdJugador, e.IdClan })
+                    .HasName("PK_Donar_1");
 
                 entity.ToTable("Donar");
+
+                entity.Property(e => e.FechaDonacion).HasColumnType("datetime");
+
+                entity.HasOne(d => d.IdCartaNavigation)
+                    .WithMany(p => p.Donars)
+                    .HasForeignKey(d => d.IdCarta)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Donar_Carta");
+
+                entity.HasOne(d => d.Id)
+                    .WithMany(p => p.Donars)
+                    .HasForeignKey(d => new { d.IdMiembro, d.IdJugador, d.IdClan })
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Donar_Miembro");
             });
 
             modelBuilder.Entity<Estructura>(entity =>
@@ -239,8 +254,7 @@ namespace ClashRoyaleAplication.DBModels
 
             modelBuilder.Entity<Miembro>(entity =>
             {
-                entity.HasKey(e => new { e.IdJugador, e.IdMiembro, e.IdClan })
-                    .HasName("PK_Miembro_1");
+                entity.HasKey(e => new { e.IdJugador, e.IdMiembro, e.IdClan });
 
                 entity.ToTable("Miembro");
 
