@@ -70,7 +70,13 @@ namespace ClashRoyaleAplication.Controllers
             {
                 var model = await _repository.GetClanAsync(nombre);
 
-                return _mapper.Map<ClanModels>(model);
+                var modelreturn = _mapper.Map<ClanModels>(model);
+
+                var cartafavorita = await _repository.GetAllCartasFavoritas(model);
+
+                modelreturn.CartaFavorita = _mapper.Map<CartaModels[]>(cartafavorita);
+
+                return modelreturn; 
 
             }
             catch (Exception)

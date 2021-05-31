@@ -20,5 +20,9 @@ namespace ClashRoyaleAplication.Data
         public Task<Clan> GetClanAsync(string nombre);
 
         public Task<Clan[]> GetAllClanesByRegion(string region);
+
+        public Task<Cartum[]> GetAllCartasFavoritas(Clan clan);
+
+
     }
 }

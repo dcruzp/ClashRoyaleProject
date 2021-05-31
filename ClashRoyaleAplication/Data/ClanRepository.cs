@@ -57,5 +57,25 @@ namespace ClashRoyaleAplication.Data
         {
             return (await _context.SaveChangesAsync())>0; 
         }
+
+        public async  Task<Cartum[]> GetAllCartasFavoritas(Clan clan)
+        {
+            //var cartasfavoritas = clan.Miembros.Select(x => x.IdJugadorNavigation);
+
+            //var cartaspreferidas = cartasfavoritas.Select(x => x.CartaPreferidaActualNavigation).Max();
+
+            /*return  cartaspreferidas;*/
+
+            List<Jugador> jugadoresdelclan = _context.Miembros.Where(x => x.IdClan == clan.IdClan).Select(x=>x.IdJugadorNavigation).ToList();
+
+            var groups = jugadoresdelclan.GroupBy(x => x.CartaPreferidaActual);
+            var contador = groups.OrderByDescending(x => x.Count()).First();
+
+            var carta = _context.Carta.Where(x => x.IdCarta == contador.Key);
+
+
+
+            return await carta.ToArrayAsync();
+        }
     }
 }

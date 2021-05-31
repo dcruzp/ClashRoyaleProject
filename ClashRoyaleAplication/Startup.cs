@@ -164,9 +164,17 @@ namespace ClashRoyaleAplication
                 miembro.IdClan = clan.IdClan;
 
 
-                context.Add(miembro); 
-
+                context.Add(miembro);
+                context.SaveChanges(); 
             }
+
+            var Jugador = context.Jugadors.Where(x => x.Nombre == "Daniel").FirstOrDefault();
+            var Carta = context.Carta.Where(x => x.Nombre == "Carta1").FirstOrDefault();
+
+            Jugador.CartaPreferidaActual = Carta.IdCarta;
+
+            context.SaveChanges(); 
+
         }
     }
 }
