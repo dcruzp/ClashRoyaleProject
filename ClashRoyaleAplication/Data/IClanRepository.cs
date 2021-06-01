@@ -23,6 +23,7 @@ namespace ClashRoyaleAplication.Data
 
         public Task<Cartum[]> GetAllCartasFavoritas(Clan clan);
 
+        public Task<Jugador[]> GetAllJugadoresMember(Clan clan);
 
     }
 }

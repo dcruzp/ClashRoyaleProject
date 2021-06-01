@@ -104,7 +104,12 @@ namespace ClashRoyaleAplication
                     new Jugador { Nombre = "Pedro" , CantidadVictorias =  3 , MaximoTrofeos =  22 , Nivel = 3  , CantidadTrofeos = 1 , CantidadCartasEncontradas = 7  },
                     new Jugador { Nombre = "Alejandro" , CantidadVictorias =  1 , MaximoTrofeos =  5 , Nivel = 7 , CantidadTrofeos = 8 , CantidadCartasEncontradas = 9  },
                     new Jugador { Nombre = "Perico" , CantidadVictorias =  6 , MaximoTrofeos =  8 , Nivel = 3  , CantidadTrofeos = 7, CantidadCartasEncontradas = 10  },
-                    new Jugador { Nombre = "Daniel" , CantidadVictorias =  3 , MaximoTrofeos =  9 , Nivel = 4  , CantidadTrofeos = 4 , CantidadCartasEncontradas = 4  },
+                    new Jugador { Nombre = "David" , CantidadVictorias =  3 , MaximoTrofeos =  9 , Nivel = 4  , CantidadTrofeos = 4 , CantidadCartasEncontradas = 4  },
+                    new Jugador { Nombre = "Alexander" , CantidadVictorias =  1 , MaximoTrofeos =  3 , Nivel = 1 , CantidadTrofeos = 2 , CantidadCartasEncontradas = 1  },
+                    new Jugador { Nombre = "Alicia" , CantidadVictorias =  2, MaximoTrofeos =  9 , Nivel = 4  , CantidadTrofeos = 4 , CantidadCartasEncontradas = 4  },
+                    new Jugador { Nombre = "Neivis" , CantidadVictorias =  4 , MaximoTrofeos =  1 , Nivel = 5  , CantidadTrofeos = 4 , CantidadCartasEncontradas = 4  },
+                    new Jugador { Nombre = "Dariel" , CantidadVictorias =  1 , MaximoTrofeos =  4 , Nivel = 6  , CantidadTrofeos = 2 , CantidadCartasEncontradas = 5  },
+                    new Jugador { Nombre = "Danilo" , CantidadVictorias =  9 , MaximoTrofeos =  3 , Nivel = 3  , CantidadTrofeos = 2 , CantidadCartasEncontradas = 5  },
                 });
                 context.SaveChanges();
             }
@@ -124,9 +129,17 @@ namespace ClashRoyaleAplication
             if (!context.Clans.Any())
             {
                 context.Clans.AddRange(new List<Clan>() {
-                    new Clan { Nombre=  "Clan1" ,  Tipo =  "Open" , CantidadDeMiembros =  3 , Region= "Center"  , Descripcion = "Esta es la descripcion del Clan1"   , Trofeos = "Trofeo1" , CantidadDeTrofeos =  1 },
-                    new Clan { Nombre=  "Clan2" ,  Tipo =  "Invited" , CantidadDeMiembros =  4 , Region= "Center" , Descripcion = "Esta es la descripcion del Clan2"   , Trofeos = "Trofeo3" , CantidadDeTrofeos =  4 },
-                    new Clan { Nombre=  "Clan3" ,  Tipo =  "Open" , CantidadDeMiembros =  2 , Region= "Oriente" , Descripcion = "Esta es la descripcion del Clan3"   , Trofeos = "Trofeo9" , CantidadDeTrofeos =  3 },
+                    new Clan { Nombre=  "Clan1" ,  Tipo =  "Open" , CantidadDeMiembros =  3 , Region= "America"  , Descripcion = "Esta es la descripcion del Clan1"   , Trofeos = "Trofeo1" , CantidadDeTrofeos =  1 },
+                    new Clan { Nombre=  "Clan2" ,  Tipo =  "Invited" , CantidadDeMiembros =  4 , Region= "Asia" , Descripcion = "Esta es la descripcion del Clan2"   , Trofeos = "Trofeo3" , CantidadDeTrofeos =  4 },
+                    new Clan { Nombre=  "Clan3" ,  Tipo =  "Open" , CantidadDeMiembros =  1 , Region= "Australia" , Descripcion = "Esta es la descripcion del Clan3"   , Trofeos = "Trofeo9" , CantidadDeTrofeos =  3 },
+                    new Clan { Nombre=  "Clan4" ,  Tipo =  "Open" , CantidadDeMiembros =  3 , Region= "Europe" , Descripcion = "Esta es la descripcion del Clan4"   , Trofeos = "Trofeo2" , CantidadDeTrofeos =  1 },
+                    new Clan { Nombre=  "Clan5" ,  Tipo =  "Open" , CantidadDeMiembros =  4 , Region= "Europe" , Descripcion = "Esta es la descripcion del Clan5"   , Trofeos = "Trofeo4" , CantidadDeTrofeos =  2 },
+                    new Clan { Nombre=  "Clan6" ,  Tipo =  "Open" , CantidadDeMiembros =  5 , Region= "Africa" , Descripcion = "Esta es la descripcion del Clan6"   , Trofeos = "Trofeo5" , CantidadDeTrofeos =  1 },
+                    new Clan { Nombre=  "Clan7" ,  Tipo =  "Invited" , CantidadDeMiembros =  6 , Region= "Europe" , Descripcion = "Esta es la descripcion del Clan7"   , Trofeos = "Trofeo6" , CantidadDeTrofeos =  4 },
+                    new Clan { Nombre=  "Clan8" ,  Tipo =  "Invited" , CantidadDeMiembros =  7 , Region= "Australia" , Descripcion = "Esta es la descripcion del Clan8"   , Trofeos = "Trofeo7" , CantidadDeTrofeos =  6 },
+                    new Clan { Nombre=  "Clan9" ,  Tipo =  "Open" , CantidadDeMiembros =  7 , Region= "Africa" , Descripcion = "Esta es la descripcion del Clan9"   , Trofeos = "Trofeo8" , CantidadDeTrofeos =  7 },
+                    new Clan { Nombre=  "Clan10" ,  Tipo =  "Invited" , CantidadDeMiembros =  6 , Region= "America" , Descripcion = "Esta es la descripcion del Clan10"   , Trofeos = "Trofeo9" , CantidadDeTrofeos =  1 },
+
                 });
                 context.SaveChanges(); 
             }
@@ -136,7 +149,15 @@ namespace ClashRoyaleAplication
                 context.GuerradeClanes.AddRange(new List<GuerradeClane>() 
                 {
                     new GuerradeClane { Nombre = "Guerra1" } , 
-                    new GuerradeClane { Nombre = "Guerra2"}
+                    new GuerradeClane { Nombre = "Guerra2"},
+                    new GuerradeClane { Nombre = "Guerra3" } ,
+                    new GuerradeClane { Nombre = "Guerra4" } ,
+                    new GuerradeClane { Nombre = "Guerra5" } ,
+                    new GuerradeClane { Nombre = "Guerra6" } ,
+                    new GuerradeClane { Nombre = "Guerra7" } ,
+                    new GuerradeClane { Nombre = "Guerra8" } ,
+                    new GuerradeClane { Nombre = "Guerra9" } ,
+                    new GuerradeClane { Nombre = "Guerra10" } ,
                 });
                 context.SaveChanges(); 
             }
@@ -157,28 +178,40 @@ namespace ClashRoyaleAplication
 
             if (!context.Miembros.Any())
             {
-                var jugador = context.Jugadors.Where(x => x.Nombre== "Daniel").FirstOrDefault();
-                var clan = context.Clans.Where(x => x.Nombre == "Clan1").FirstOrDefault();
-
-                Miembro miembro = new Miembro();
-
-                miembro.IdJugador = jugador.IdJugador;
-                miembro.IdClan = clan.IdClan;
-
-
-                context.Add(miembro);
-                context.SaveChanges(); 
+                AsignarMiembro("Clan1", "Daniel" , context);
+                AsignarMiembro("Clan1", "Pedro", context); 
             }
 
-            var Jugador = context.Jugadors.Where(x => x.Nombre == "Daniel").FirstOrDefault();
-            var Carta = context.Carta.Where(x => x.Nombre == "Carta1").FirstOrDefault();
+            AsignarCartaaJugador("XBow", "Daniel" , context);
+            AsignarCartaaJugador("Minions", "Pedro", context);  
 
-            //Jugador.CartaPreferidaActual = Carta.IdCarta;
+        }
 
-           
 
-            context.SaveChanges(); 
+        public void AsignarMiembro (string nombreclan , string nombrejugador , clashroyaleContext context)
+        {
+            var jugador = context.Jugadors.Where(x => x.Nombre == nombrejugador).FirstOrDefault();
+            var clan = context.Clans.Where(x => x.Nombre == nombreclan).FirstOrDefault();
 
+            Miembro miembro = new Miembro();
+
+            miembro.IdJugador = jugador.IdJugador;
+            miembro.IdClan = clan.IdClan;
+
+
+            context.Add(miembro);
+            context.SaveChanges();
+        }
+
+        public void AsignarCartaaJugador (string nombreCarta , string nombreJugador , clashroyaleContext context)
+        {
+            var Jugador = context.Jugadors.Where(x => x.Nombre == nombreJugador).FirstOrDefault();
+            var Carta = context.Carta.Where(x => x.Nombre == nombreCarta).FirstOrDefault();
+
+            if (Jugador != null && Carta != null)
+                Jugador.CartaPreferidaActual = Carta.IdCarta;
+
+            context.SaveChanges();
         }
     }
 }

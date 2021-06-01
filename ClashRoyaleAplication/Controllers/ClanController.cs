@@ -73,21 +73,16 @@ namespace ClashRoyaleAplication.Controllers
 
                 var modelreturn = _mapper.Map<ClanModels>(model);
 
-
-                Cartum[] cartafavorita = null;
-
-                try
-                {
-                    cartafavorita = await _repository.GetAllCartasFavoritas(model);
-                }
-                catch (Exception)
-                {
-
-                }
+                var cartafavorita = await _repository.GetAllCartasFavoritas(model);
 
                 if (cartafavorita != null)
                     modelreturn.CartaFavorita = _mapper.Map<CartaModels[]>(cartafavorita);
 
+                Jugador[] jugadoresMiembros = await _repository.GetAllJugadoresMember(model);
+
+                if (jugadoresMiembros != null)
+                    modelreturn.AllJugadores = _mapper.Map<JugadorModels[]>(jugadoresMiembros); 
+                
                 return modelreturn; 
             }
             catch (Exception)
@@ -125,7 +120,6 @@ namespace ClashRoyaleAplication.Controllers
                 {
                     return Created($"api/clan/{clan.Nombre}", _mapper.Map<ClanModels>(model));
                 }
-
             }
             catch
             {

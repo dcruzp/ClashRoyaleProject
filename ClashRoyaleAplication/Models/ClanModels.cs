@@ -16,7 +16,8 @@ namespace ClashRoyaleAplication.Models
         public string Trofeos { get; set; }
         public int CantidadDeTrofeos { get; set; }
 
-        public CartaModels[] CartaFavorita { get; set;  }
+        public IEnumerable<CartaModels> CartaFavorita { get; set;  }
+        public IEnumerable<JugadorModels> AllJugadores { get; set; }
 
     }
 }

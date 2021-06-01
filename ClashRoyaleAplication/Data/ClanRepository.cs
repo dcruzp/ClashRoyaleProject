@@ -58,24 +58,31 @@ namespace ClashRoyaleAplication.Data
             return (await _context.SaveChangesAsync())>0; 
         }
 
-        public async  Task<Cartum[]> GetAllCartasFavoritas(Clan clan)
+        public async Task<Cartum[]> GetAllCartasFavoritas(Clan clan)
         {
-            //var cartasfavoritas = clan.Miembros.Select(x => x.IdJugadorNavigation);
 
-            //var cartaspreferidas = cartasfavoritas.Select(x => x.CartaPreferidaActualNavigation).Max();
+            var jugadoresdelclan = _context.Miembros
+                .Where(x => x.IdClan == clan.IdClan)
+                .Select(x=>x.IdJugadorNavigation).ToList();
 
-            /*return  cartaspreferidas;*/
+            if (jugadoresdelclan.Count == 0) return null;
 
-            List<Jugador> jugadoresdelclan = _context.Miembros.Where(x => x.IdClan == clan.IdClan).Select(x=>x.IdJugadorNavigation).ToList();
+            var result = from jugadores in jugadoresdelclan
+                         where jugadores.CartaPreferidaActual != null
+                         group jugadores by jugadores.CartaPreferidaActual into g
+                         orderby g.Count() descending
+                         select _context.Carta.Where(x => x.IdCarta == g.Key).ToArrayAsync();
 
-            var groups = jugadoresdelclan.GroupBy(x => x.CartaPreferidaActual);
-            var contador = groups.OrderByDescending(x => x.Count()).First(); 
+            return await result.FirstOrDefault(); 
+        }
 
-            var carta = _context.Carta.Where(x => x.IdCarta == contador.Key);
+        public async  Task<Jugador[]> GetAllJugadoresMember(Clan clan)
+        {
+            IQueryable<Jugador> query = _context.Miembros
+                 .Where(x => x.IdClan == clan.IdClan)
+                 .Select(x => x.IdJugadorNavigation);
 
-
-
-            return await carta.ToArrayAsync();
+            return await query.ToArrayAsync();
         }
     }
 }
