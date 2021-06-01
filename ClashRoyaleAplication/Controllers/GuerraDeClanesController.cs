@@ -28,7 +28,7 @@ namespace ClashRoyaleAplication.Controllers
             _linkgenerator = linkGenerator; 
         }
 
-        // GET: api/<GuerraDeClanesController>
+        
         [HttpGet]
         public async Task<ActionResult<GuerraDeClanesModels[]>> Get()
         {
@@ -46,7 +46,7 @@ namespace ClashRoyaleAplication.Controllers
             }
         }
 
-        // GET api/<GuerraDeClanesController>/5
+      
         [HttpGet("{nombre}")]
         public async Task<ActionResult<GuerraDeClanesModels>> Get (string nombre)
         {
@@ -82,7 +82,7 @@ namespace ClashRoyaleAplication.Controllers
             }
         }
 
-        // POST api/<GuerraDeClanesController>
+        
         [HttpPost]
         public async Task<ActionResult<GuerraDeClanesModels>> Post([FromBody] GuerraDeClanesModels guerradeclanes)
         {
@@ -119,7 +119,7 @@ namespace ClashRoyaleAplication.Controllers
             return BadRequest(); 
         }
 
-        // PUT api/<GuerraDeClanesController>/5
+        
         [HttpPut("{nombre}")]
         public async Task<ActionResult<GuerraDeClanesModels>> Put(string nombre, [FromBody] GuerraDeClanesModels guerradeclanes)
         {
@@ -146,7 +146,7 @@ namespace ClashRoyaleAplication.Controllers
             return BadRequest();
         }
 
-        // DELETE api/<GuerraDeClanesController>/5
+      
         [HttpDelete("{nombre}")]
         public async Task<ActionResult<GuerraDeClanesModels>> Delete(string nombre)
         {

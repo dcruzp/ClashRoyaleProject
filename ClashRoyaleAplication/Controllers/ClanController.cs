@@ -91,7 +91,7 @@ namespace ClashRoyaleAplication.Controllers
             }
         }
 
-        // POST api/<ClanController>
+        
         [HttpPost]
         public async Task<ActionResult<ClanModels>> Post([FromBody] ClanModels clan)
         {
@@ -129,7 +129,7 @@ namespace ClashRoyaleAplication.Controllers
             return BadRequest();
         }
 
-        // PUT api/<ClanController>/5
+       
         [HttpPut("{nombre}")]
         public async Task<ActionResult<ClanModels>> Put(string nombre , [FromBody] ClanModels clan)
         {
@@ -156,7 +156,7 @@ namespace ClashRoyaleAplication.Controllers
 
         }
 
-        // DELETE api/<ClanController>/5
+       
         [HttpDelete("{nombre}")]
         public async Task<ActionResult<ClanModels>> Delete(string nombre)
         {

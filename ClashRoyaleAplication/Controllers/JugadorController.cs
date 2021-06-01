@@ -30,7 +30,7 @@ namespace ClashRoyaleAplication.Controllers
             _linkGenerator = linkGenerator; 
         }
 
-        // GET: api/<JugadorController>
+     
         [HttpGet]
         public async  Task<ActionResult<JugadorModels[]>> Get()
         {
@@ -47,7 +47,7 @@ namespace ClashRoyaleAplication.Controllers
 
         }
 
-        // GET api/<JugadorController>/5
+       
         [HttpGet("{nombre}")]
         public async Task<ActionResult<JugadorModels>> Get(string nombre)
         {
@@ -73,7 +73,7 @@ namespace ClashRoyaleAplication.Controllers
             }
         }
 
-        // POST api/<JugadorController>
+       
         [HttpPost]
         public async Task<ActionResult<JugadorModels>> Post([FromBody] JugadorModels jugador)
         {
@@ -112,7 +112,7 @@ namespace ClashRoyaleAplication.Controllers
             return BadRequest(); 
         }
 
-        // PUT api/<JugadorController>/5
+      
         [HttpPut("{nombre}")]
         public async Task<ActionResult<JugadorModels>> Put(string nombre, [FromBody] JugadorModels jugador)
         {
@@ -138,7 +138,7 @@ namespace ClashRoyaleAplication.Controllers
             return BadRequest(); 
         }
 
-        // DELETE api/<JugadorController>/5
+       
         [HttpDelete("{nombre}")]
         public async Task<ActionResult<JugadorModels>> Delete(string nombre)
         {

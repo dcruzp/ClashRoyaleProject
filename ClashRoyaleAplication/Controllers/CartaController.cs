@@ -32,7 +32,7 @@ namespace ClashRoyaleAplication.Controllers
         }
 
 
-        // GET: api/<CartaController>
+        
         [HttpGet]
         public async Task<ActionResult<CartaModels[]>>  Get()
         {
@@ -48,7 +48,7 @@ namespace ClashRoyaleAplication.Controllers
             }
         }
 
-        // GET api/<CartaController>/5
+       
         [HttpGet("{nombre}")]
         public async Task<ActionResult<CartaModels>> Get(string nombre)
         {
@@ -65,7 +65,7 @@ namespace ClashRoyaleAplication.Controllers
             }
         }
 
-        // POST api/<CartaController>
+       
         [HttpPost]
         public async Task<ActionResult<CartaModels>> Post([FromBody] CartaModels carta )
         {
@@ -105,7 +105,7 @@ namespace ClashRoyaleAplication.Controllers
             return BadRequest();
         }
 
-        // PUT api/<CartaController>/5
+       
         [HttpPut("{nombre}")]
         public async Task<ActionResult<CartaModels>> Put(int nombre, [FromBody] CartaModels carta)
         {
@@ -131,7 +131,7 @@ namespace ClashRoyaleAplication.Controllers
             return BadRequest();
         }
 
-        // DELETE api/<CartaController>/5
+       
         [HttpDelete("{nombre}")]
         public async Task<ActionResult<CartaModels>>Delete(string nombre)
         {

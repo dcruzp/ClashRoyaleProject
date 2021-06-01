@@ -30,7 +30,7 @@ namespace ClashRoyaleAplication.Controllers
             _linkGenerator = linkGenerator; 
         }
 
-        // GET: api/<DesafioController>
+       
         [HttpGet]
         public async Task<ActionResult<DesafioModels[]>> Get()
         {
@@ -46,7 +46,7 @@ namespace ClashRoyaleAplication.Controllers
             }
         }
 
-        // GET api/<DesafioController>/5
+        
         [HttpGet("nombre")]
         public  async Task<ActionResult<DesafioModels>> Get(string nombre )
         {
@@ -62,7 +62,6 @@ namespace ClashRoyaleAplication.Controllers
             }
         }
 
-        // POST api/<DesafioController>
         [HttpPost]
         public  async Task<ActionResult<DesafioModels>> Post([FromBody] DesafioModels desafio)
         {
@@ -100,7 +99,7 @@ namespace ClashRoyaleAplication.Controllers
             return BadRequest(); 
         }
 
-        // PUT api/<DesafioController>/5
+      
         [HttpPut("{nombre}")]
         public async Task <ActionResult<DesafioModels>> Put(string nombre, [FromBody] DesafioModels desafio)
         {
@@ -127,7 +126,7 @@ namespace ClashRoyaleAplication.Controllers
             return BadRequest(); 
         }
 
-        // DELETE api/<DesafioController>/5
+      
         [HttpDelete("{nombre}")]
         public async Task<ActionResult<DesafioModels>> Delete(string nombre)
         {
