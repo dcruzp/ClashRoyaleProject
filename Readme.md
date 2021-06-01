@@ -82,3 +82,31 @@
     Esto me representa los modelos que se usan para 
     representar los objetos que son enviados al 
     frontend 
+
+     
+    ```
+        Models
+            |- CartaModels.cs 
+            |- ClanModels.cs 
+            |- DesafioModels.cs 
+            |- GuerraDeClanesModels.cs 
+            |- JugadorModels.cs            
+    ```
+
+  - **Data**
+
+    En esta carpeta estan todas la interfaces e implementaciones 
+    de los datos y las query para manejar la base de datos 
+     ```
+        Data
+            |- ICartaRepository.cs 
+            |- IClanRepository.cs 
+            |- IDesafioRepository.cs 
+            |- IGuerraDeClanesRepository.cs 
+            |- IJugadorRepository.cs
+            |- ClashRoayaleProfile.cs            
+    ```
+
+ ## Diagrama de la Base de Datos
+
+   ![imag](img/DBDiagram.png)
