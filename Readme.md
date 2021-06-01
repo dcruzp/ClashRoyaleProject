@@ -2,7 +2,7 @@
 
 ### Estructura del proyecto por carpetas 
 
-- DBModels
+- **DBModels**
 
     Aqui estan todas las clases que me representan la base Datos 
     
@@ -40,7 +40,45 @@
     tabla relacional entre un jugador y una carta. para saber 
     las cartas de las que dispone un jugador 
 
-    - 
+    - La clase *Donar.cs* me representa una donacion hecha 
+    por una jugador miembro de un clan  de una carta determinada
 
+    - La clase *Estructura.cs* me representa una estructura, 
+     que es una especializacion de Carta 
 
+    - La clase *GuerradeClane.cs* me representa una guerra
+    que puede ocurrir entre varios clanes
 
+    - La clase *Hechizo.cs*  representa una especializacion de Carta 
+
+    - La clase *Jugador.cs* me representa un jugador
+
+    - La clase *Lucha.cs* me representa una lucha que 
+    se puede dar entre dos jugadores
+
+    - La clase  *Miembro.cs* me representa un los miembros
+    de los clanes , es decir la relacion de los jugadores con los clanes
+
+    - La clase  *Participa.cs* es para representar la participacion 
+    de un jugador en un desafio
+
+    - La clase  *ParticipaEn.cs* es para representar la participacion 
+    de un clan en una guerra 
+
+    - La clase *Pertenece.cs* es para representar los jugadores que pertenecen 
+    a un clan. 
+
+    - La Clase *Tropa.cs* es una espacializacion de carta  
+ 
+
+ - **Data**
+
+    En esta carpeta se encuentras las clases e interfaces que 
+    se usan para hacer inserciones , actualizaciones y barrado de 
+    la base de datso
+    
+ - **Models**
+    
+    Esto me representa los modelos que se usan para 
+    representar los objetos que son enviados al 
+    frontend 
