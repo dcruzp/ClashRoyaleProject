@@ -105,6 +105,7 @@ namespace ClashRoyaleAplication.Controllers
                 
             }
             catch 
+            
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
