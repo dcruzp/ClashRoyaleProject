@@ -1,4 +1,4 @@
-﻿# Clash Royale Web Aplicación 
+﻿# Clash Royale Aplicación Web
 
 ### Autores: 
    - Daniel de la Cruz Prieto.  [dcruzp](https://github.com/dcruzp/)
@@ -277,3 +277,39 @@
  ## Diagrama de la base de datos 
 
    ![](img/DBDiagram.png)
+
+### Para correr la aplicacion 
+    
+   La aplicacion usa una base de datos en memoria. Esto esta configurado 
+    en la clase Setup.cs. En el metodo ``` public void ConfigureServices(IServiceCollection services)``` 
+    esta confugurado para usar una base de datos en memoria. 
+
+   ```
+    services.AddDbContext<clashroyaleContext>(options => options.UseInMemoryDatabase("database"));
+   ``` 
+    
+  Puede ser sustituida quetandole la opcion ```UseInMemoryDatabase``` el sevicio quedaria 
+   configurado de la siguiente manera: 
+
+   ```
+     services.AddDbContext<clashroyaleContext>();
+   ```
+   Una vez hecho esto hay que configurar el conectionString para indicar 
+    la base de datos que vamos a usar. 
+
+### Algunos paquetes que hay que intalar 
+
+   Usamos Automapper para poder mapear los modelos que tenemos, ademas de 
+    algunas extensiones necesarias para poder correr la aplicacion usando 
+    un base de datos en memoria(por problemas de compatibilidad y que no tuvieran que 
+    instalar un gestor de base de datos). 
+    Aqui hay una lista de los paquetes instlados con los que la aplicaicon estaba corriendo 
+    en Visual Studio 2019. 
+   
+   ![PackagesToInstall](img/PackagesToInstall.png)
+    
+### Especificaciones del Proyecto 
+    
+   El proyecto esta hecho en .Net Core usando como ORM EntityFramework. 
+    Usamos SQL Server como sistema de gestion de base de Datos. 
+    
