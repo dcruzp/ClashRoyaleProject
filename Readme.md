@@ -1,5 +1,11 @@
 ﻿# Clash Royale Web Aplicación 
 
+### Autores: 
+   - Daniel de la Cruz Prieto.  [dcruzp](https://github.com/dcruzp/)
+   - Frank Adrian Perez Morales. [frankadrian98](https://github.com/frankadrian98/)
+   - Camilo Rodriguez Velázquez.  [ErichKrausse](https://github.com/ErichKrausse/) 
+
+    
 ### Estructura del proyecto por carpetas 
 
 - ### Controllers
@@ -69,7 +75,7 @@
 
     **DesafioController.cs**
     
-    En el controlador DesafioController es para poder manejar los desafíos 
+    El controlador DesafioController es para poder manejar los desafíos 
     existentes, poder obtener un desafío en la base de datos mediante su 
     propiedad nombre. 
     ```
@@ -81,7 +87,25 @@
     
     **GuerraDeClanesController.cs**
     
+    El controlador de GuerraDeClanesController podemos manejar 
+    las guerras de clanes que hay en el juego. Es decir podemos ver 
+    los clanes que participan en una guerra de clanes. Podemos hacer 
+    inserciones , actualizaciones y brrados de la base de datos 
+    usando ese controlador , por ejemplo para 
+    saber las guerras de clanes que existen podemos hacer el siguiente 
+    pedido: 
+    
+    ```
+    http://localhost:6600/api/guerradeclanes
+    ```
+    
+    Mediante este pedido Get Podemos saber todas las guerras de clanes que existen 
+    en la base de datos. 
+    El modelos que nos retorna tiene ademas una lista de clanes con los clanes que 
+    están en esa guerra de clanes, así como una lista con los mejores jugadores que
+    hay en esa guerra de clanes.
 
+## Diccionario de Datos 
 - ### DBModels
 
     Aquí están todas las clases que me representan la base Datos 
@@ -117,7 +141,8 @@
     - La clase  *Cartum.cs* me representa una Carta del Juego. En la 
       Base de Datos la tabla esta compuesta por los Campos que se muestran
       en la siguiente imagen:  
-        ![Carta](img/CartaDiagram.png)
+       
+         ![Carta](img/CartaDiagram.png)
 
 
     - La clase *Clan.cs* me representa una Clan del juego 
@@ -140,17 +165,26 @@
 
     
     - La clase *Donar.cs* me representa una donación hecha 
-    por una jugador miembro de un clan  de una carta determinada
+    por una jugador miembro de un clan  de una carta determinada. Es una tabla relacional 
+    Y esta representada en la base de datos mediante la siguiente tabla. 
+    
+        ![Donar](img/DonarDiagram.png)
 
     - La clase *Estructura.cs* me representa una estructura, 
-     que es una especialización de Carta 
+     que es una especialización de Carta. En la base de datos esta queda 
+    representada de la siguiente manera: 
+        
+        ![Estructura](img/EstructuraDiagram.png)
 
     - La clase *GuerradeClane.cs* me representa una guerra
     que puede ocurrir entre varios clanes
 
         ![GuerraDeClanes](img/GuerraDeClanesDiagram.png)
 
-    - La clase *Hechizo.cs*  representa una especialización de Carta 
+    - La clase *Hechizo.cs*  representa una especialización de Carta . 
+     En la base de datos esta esta representada de la siguiente manera. 
+
+        ![Hechizos](img/HechizosDiagram.png)
 
     - La clase *Jugador.cs* me representa un jugador. En la 
     Base de Datos un jugador queda representado mediante la 
@@ -159,8 +193,13 @@
         ![Jugador](img/JugadorDiagram.png)
 
     - La clase *Lucha.cs* me representa una lucha que 
-    se puede dar entre dos jugadores
+    se puede dar entre dos jugadores. Es una tabla relacional. En la base de datos 
+    esta representada mediante la siguiente tabla
 
+        ![Lucha](img/LuchaDiagram.png) 
+
+
+    
     - La clase  *Miembro.cs* me representa un los miembros
     de los clanes , es decir la relación de los jugadores con los clanes.
     En la base de datos esta relación esta representada mediante la siguiente tabla: 
@@ -168,10 +207,16 @@
         ![Miembro](img/MiembroDiagram.png)     
 
     - La clase  *Participa.cs* es para representar la participación 
-    de un jugador en un desafió
+    de un jugador en un desafió. Es un atabla relacional. Su representacion en la 
+    base de datso esta dada mediante la siguiente tabla. 
+
+        ![Participa](img/ParticipaDiagram.png) 
 
     - La clase  *ParticipaEn.cs* es para representar la participación 
-    de un clan en una guerra 
+    de un clan en una guerra. Es una tabla relacional . Esta representada
+    en la base de datos de la siguiente manera: 
+        
+        ![ParticipaEn](img/ParticipaEnDiagram.png)
 
     - La clase *Pertenece.cs* es para representar los jugadores que pertenecen 
     a un clan. Esta relación esta representada en la base de datos 
@@ -179,8 +224,12 @@
     
         ![Pertenece](img/PerteneceDiagram.png)
 
-    - La Clase *Tropa.cs* es una especialización de carta  
- 
+    - La Clase *Tropa.cs* es una especialización de carta. Esta 
+      clase esta relacionada con la clase Carta.cs mediante una 
+      llave. En la base de datos esta clase queda representada 
+      de la siguiente manera: 
+        
+        ![Lucha](img/TropaDiagram.png)
 
  
     
@@ -217,7 +266,13 @@
             |- DonarRepository.cs
             |- JugadorRepository.cs       
     ```
-    Lo modelamos así para poder usar la inyección de dependencias.
+    Lo modelamos así para poder usar la inyección de dependencias. Las interfaces 
+    correspondientes a cada clase las nombremos iguales, solo le anadimos la  "*I*" de interfaz 
+    delante del nombre.
+
+    Cada una de estos clase tiene metodos para la insercion , eliminacion y busqueda 
+    de datos en la base de datos. Estas estructuras son usadas en los controladores para 
+    hacer las correspondientes consultas a la base de datos.
 
  ## Diagrama de la base de datos 
 
