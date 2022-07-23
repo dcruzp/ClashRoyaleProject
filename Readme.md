@@ -3,7 +3,7 @@
 ### Autores: 
    - Daniel de la Cruz Prieto.  [dcruzp](https://github.com/dcruzp/)
    - Frank Adrian Perez Morales. [frankadrian98](https://github.com/frankadrian98/)
-   - Camilo Rodriguez Velázquez.  [ErichKrausse](https://github.com/ErichKrausse/) 
+   - Camilo Rodriguez Velázquez.  [camilorod4312](https://github.com/camilorod4312/) 
 
     
 ### Estructura del proyecto por carpetas 
@@ -201,7 +201,7 @@
 
     
     - La clase  *Miembro.cs* me representa un los miembros
-    de los clanes , es decir la relación de los jugadores con los clanes.
+    de los clanes , es decir la relación de los jugadores con los clanes.sdf
     En la base de datos esta relación esta representada mediante la siguiente tabla: 
         
         ![Miembro](img/MiembroDiagram.png)     
